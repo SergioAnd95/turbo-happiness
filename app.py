@@ -35,6 +35,7 @@ async def init_app():
     # Create tables
     await db.gino.create_all()
 
+    app.router.add_static(settings.STATIC_URL, settings.STATIC_DIR, name='static')
     app.db = db
 
     # Jinja(template system) setup
@@ -43,6 +44,7 @@ async def init_app():
         context_processors=[aiohttp_jinja2.request_processor], )
     
     app.add_routes(routes)
+    app.wslist = {}
 
     return app
 

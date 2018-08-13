@@ -2,6 +2,7 @@ import os
 
 INSTALLED_APPS = [
     'accounts',
+    'chat',
 ]
 
 DEBUG = os.environ.get('DEBUG', False)
